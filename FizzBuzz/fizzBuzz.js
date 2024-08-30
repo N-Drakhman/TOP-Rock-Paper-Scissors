@@ -1,4 +1,4 @@
-const inputNumber = prompt("enter your number");
+const inputNumber = parseInt(prompt("enter your number"));
 
 for (let i = 1; i <= inputNumber; i++) {
   if (i % 3 == 0) {
