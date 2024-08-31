@@ -27,26 +27,32 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-rockBtn.addEventListener("click", function () {
+// 2
+btnRock.addEventListener("click", function () {
   getComputerChoice();
-  player.innerText = "Rock";
+  humanChoice.innerText = "rock";
 
   playRound(humanChoice.innerText, computerChoice.innerText);
+  playGame();
 });
 
-paperBtn.addEventListener("click", function () {
+btnPaper.addEventListener("click", function () {
   getComputerChoice();
-  player.innerText = "Paper";
+  humanChoice.innerText = "paper";
 
   playRound(humanChoice.innerText, computerChoice.innerText);
+  playGame();
 });
-
-scissorsBtn.addEventListener("click", function () {
+btnScissors.addEventListener("click", function () {
   getComputerChoice();
-  player.innerText = "Scissors";
+  humanChoice.innerText = "scissors";
 
   playRound(humanChoice.innerText, computerChoice.innerText);
+
+  playGame();
 });
+
+// 3 
 
 function playRound(human, computer) {
   console.log(`${humanChoice.innerText} vs. ${computerChoice.innerText}`);
@@ -65,5 +71,36 @@ function playRound(human, computer) {
     return humanScore.innerText++;
   } else if (human === computer) {
     return drawScore.innerText++;
+  }
+}
+
+// 4
+
+function playGame() {
+    round.innerText++;
+  if (round.innerText == 5) {
+
+btnRock.disabled = true;
+btnPaper.disabled = true;
+btnScissors.disabled = true;
+
+    if (humanScore.innerText > computerScore.innerText){
+        winner.innerText = `Game ended, you win`
+    } else if (humanScore.innerText < computerScore.innerText){
+        winner.innerText = `Game ended, you loose`;
+    } else {
+        winner.innerText = `Game ended, tie`;
+    }
+
+    setTimeout(()=> {
+        humanScore.innerText = 0
+        computerScore.innerText = 0
+        drawScore.innerText = 0
+        round.innerText = 0
+        winner.innerText = "New Game!"
+        btnRock.disabled = false;
+        btnPaper.disabled = false;
+        btnScissors.disabled = false;
+    }, 2000)
   }
 }
