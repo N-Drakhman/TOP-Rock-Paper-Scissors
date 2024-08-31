@@ -1,50 +1,52 @@
-// before fix
-
 // Variables
+const computerChoice = document.querySelector("#computer-choice");
+const humanChoice = document.querySelector("#human-choice");
 
-const rockBtn = document.querySelector("#rock");
-const paperBtn = document.querySelector("#paper");
-const scissorsBtn = document.querySelector("#scissors");
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissors = document.querySelector("#scissors");
 
-const player = document.querySelector("#player");
-const computer = document.querySelector("#computer");
-const result = document.querySelector(".result");
+const humanScore = document.querySelector("#human-score");
+const computerScore = document.querySelector("#computer-score");
+const drawScore = document.querySelector("#draw");
+
+const round = document.querySelector("#round");
+const winner = document.querySelector("#round-winner");
 
 // Functions
+// 1
+function getComputerChoice() {
+  let random = Math.floor(Math.random() * 3);
+  if (random == 0) {
+    computerChoice.innerText = "rock";
+  } else if (random == 1) {
+    computerChoice.innerText = "paper";
+  } else if (random == 2) {
+    computerChoice.innerText = "scissors";
+  }
+  return computerChoice;
+}
 
 rockBtn.addEventListener("click", function () {
+  getComputerChoice();
   player.innerText = "Rock";
-  random();
-  clash();
+
+  playRound(humanChoice.innerText, computerChoice.innerText);
 });
 
 paperBtn.addEventListener("click", function () {
+  getComputerChoice();
   player.innerText = "Paper";
-  random();
-  clash();
+
+  playRound(humanChoice.innerText, computerChoice.innerText);
 });
 
 scissorsBtn.addEventListener("click", function () {
+  getComputerChoice();
   player.innerText = "Scissors";
-  random();
-  clash();
+
+  playRound(humanChoice.innerText, computerChoice.innerText);
 });
-
-function random() {
-  let rand = Math.floor(Math.random() * 3);
-
-  if (rand == 0) {
-    computer.innerText = "Rock";
-  } else if (rand == 1) {
-    computer.innerText = "Scissors";
-  } else if (rand == 2) {
-    computer.innerText = "Paper";
-  }
-
-  console.log(computer);
-
-  return computer;
-}
 
 function playRound(human, computer) {
   console.log(`${humanChoice.innerText} vs. ${computerChoice.innerText}`);
