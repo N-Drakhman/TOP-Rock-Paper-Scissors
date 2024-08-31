@@ -28,6 +28,7 @@ function getComputerChoice() {
 }
 
 // 2
+
 btnRock.addEventListener("click", function () {
   getComputerChoice();
   humanChoice.innerText = "rock";
@@ -52,7 +53,7 @@ btnScissors.addEventListener("click", function () {
   playGame();
 });
 
-// 3 
+// 3
 
 function playRound(human, computer) {
   console.log(`${humanChoice.innerText} vs. ${computerChoice.innerText}`);
@@ -77,30 +78,29 @@ function playRound(human, computer) {
 // 4
 
 function playGame() {
-    round.innerText++;
+  round.innerText++;
   if (round.innerText == 5) {
+    btnRock.disabled = true;
+    btnPaper.disabled = true;
+    btnScissors.disabled = true;
 
-btnRock.disabled = true;
-btnPaper.disabled = true;
-btnScissors.disabled = true;
-
-    if (humanScore.innerText > computerScore.innerText){
-        winner.innerText = `Game ended, you win`
-    } else if (humanScore.innerText < computerScore.innerText){
-        winner.innerText = `Game ended, you loose`;
+    if (humanScore.innerText > computerScore.innerText) {
+      winner.innerText = `Game ended, you win`;
+    } else if (humanScore.innerText < computerScore.innerText) {
+      winner.innerText = `Game ended, you loose`;
     } else {
-        winner.innerText = `Game ended, tie`;
+      winner.innerText = `Game ended, tie`;
     }
 
-    setTimeout(()=> {
-        humanScore.innerText = 0
-        computerScore.innerText = 0
-        drawScore.innerText = 0
-        round.innerText = 0
-        winner.innerText = "New Game!"
-        btnRock.disabled = false;
-        btnPaper.disabled = false;
-        btnScissors.disabled = false;
-    }, 2000)
+    setTimeout(() => {
+      humanScore.innerText = 0;
+      computerScore.innerText = 0;
+      drawScore.innerText = 0;
+      round.innerText = 0;
+      winner.innerText = "New Game!";
+      btnRock.disabled = false;
+      btnPaper.disabled = false;
+      btnScissors.disabled = false;
+    }, 2000);
   }
 }
