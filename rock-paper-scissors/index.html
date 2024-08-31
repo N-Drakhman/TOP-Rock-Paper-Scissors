@@ -3,20 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="fix.js" defer></script>
+    <script src="script.js" defer></script>
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
     <button id="rock">rock</button>
     <button id="paper">paper</button>
     <button id="scissors">scissors</button>
-<div>player vs. computer</div>
-    <div id="choose">
-        <span id="player"></span> vs. <span id="computer"></span>
+
+    <div id="choices">
+      <span id="human-choice">???</span> vs.
+      <span id="computer-choice">???</span>
     </div>
-    <div>outcome: <span class="result"></span></div>
-    <div class="player-stat"></div>
-    <div class="computer-stat"></div>
-    <button class="clean">clean score</button>
+
+    <div id="scores">
+      <p>human-score <span id="human-score">0</span></p>
+      <p>computer-score <span id="computer-score">0</span></p>
+      <p>draw <span id="draw">0</span></p>
+    </div>
+
+    <div id="stats">
+      <p>round No <span id="round">0</span></p>
+      <p>round winner: <span id="round-winner">???</span></p>
+    </div>
   </body>
 </html>

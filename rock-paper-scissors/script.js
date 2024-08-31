@@ -46,23 +46,22 @@ function random() {
   return computer;
 }
 
-function clash() {
-  if (computer.innerText == player.innerText) {
-    result.innerText = "draw";
-  } else if (computer.innerText == "Scissors" && player.innerText == "Rock") {
-    result.innerText = "you win";
-  } else if (computer.innerText == "Rock" && player.innerText == "Scissors") {
-    result.innerText = "you loose";
-  } else if (computer.innerText == "Rock" && player.innerText == "Paper") {
-    result.innerText = "you win";
-  } else if (computer.innerText == "Paper" && player.innerText == "Rock") {
-    result.innerText = "you loose";
-  } else if (computer.innerText == "Paper" && player.innerText == "Scissors") {
-    result.innerText = "you win";
-  } else if (computer.innerText == "Scissors" && player.innerText == "Paper") {
-    result.innerText = "you loose";
+function playRound(human, computer) {
+  console.log(`${humanChoice.innerText} vs. ${computerChoice.innerText}`);
+
+  if (human == "scissors" && computer == "rock") {
+    return computerScore.innerText++;
+  } else if (human == "paper" && computer == "scissors") {
+    return computerScore.innerText++;
+  } else if (human == "rock" && computer == "paper") {
+    return computerScore.innerText++;
+  } else if (human == "rock" && computer == "scissors") {
+    return humanScore.innerText++;
+  } else if (human == "scissors" && computer == "paper") {
+    return humanScore.innerText++;
+  } else if (human == "paper" && computer == "rock") {
+    return humanScore.innerText++;
+  } else if (human === computer) {
+    return drawScore.innerText++;
   }
-  //   console.log(result)
-  console.log(computer.innerText == player.innerText);
-  return result;
 }
